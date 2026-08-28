@@ -1,205 +1,362 @@
-# Product Kernel: Architecture Audit & Challenge
+# Product Kernel: Architecture Audit & Redesign
 
-You are auditing the proposed Product Kernel framework before it becomes the canonical repository structure.
+You are auditing the current Product Kernel repository before it becomes a stable public methodology.
 
-Do not assume that the existing documents are correct.
+The repository already contains an initial set of documents, context files, templates, and Claude instructions.
 
-Treat them as a strong draft that should be challenged.
+**Treat everything currently committed as Draft v0.1. Nothing is canonical merely because it already exists.**
 
-Your job is to find weaknesses, contradictions, unnecessary complexity, missing concepts, bad abstractions, and places where the framework could become genuinely better.
+Your job is to rigorously audit the current system, challenge its assumptions, compare it against the ideas that inspired it, and then redesign it into a stronger, simpler and more coherent system.
 
-## Context
+Do not optimise for preserving existing work.
 
-Product Kernel is currently conceived as:
+Optimise for the quality of the resulting framework.
 
-> A meta-context vibecoding framework for autonomous design + development.
+## Important instruction
 
-The core thesis is:
+The current repository has already been committed to Git.
+
+That does NOT mean the current architecture is approved.
+
+You have permission to:
+
+* rewrite documents completely
+* merge documents
+* split documents
+* rename files
+* move files
+* delete files
+* introduce new files
+* change the folder structure
+* change terminology
+* change the workflow
+* change the decision model
+* change the autonomy model
+* change the skill architecture
+* challenge the core thesis
+* conclude that some current ideas should be abandoned
+
+Do not make changes merely for the sake of being different.
+
+Preserve something only when you can justify why it belongs.
+
+The current repository should be treated as a prototype of the methodology itself.
+
+## Source material
+
+The current project has been inspired primarily by:
+
+### Layers
+
+Jamie Mill
+
+https://layers.jamiemill.com/
+
+Layers provides the main conceptual influence for product-design reasoning and diagnosis.
+
+Important ideas to evaluate include:
+
+* layered product reasoning
+* orientation before intervention
+* identifying the level at which a problem actually exists
+* conceptual model as a load-bearing design concern
+* targeted reasoning rather than mechanically traversing every layer
+* distinction between observation, interpretation, decision and implementation
+
+### Archē
+
+Josh Millgate
+
+https://github.com/joshmillgate/arche
+
+Archē provides the main influence for persistent project context and disciplined AI-assisted development.
+
+Important ideas to evaluate include:
+
+* persistent project context
+* context directories
+* project state
+* feature context
+* technical/developer context
+* structured development workflow
+* context synchronisation
+* AI-oriented commands and agents
+
+Do not assume either project should be reproduced.
+
+Determine what should actually be borrowed, what should remain external, and what Product Kernel uniquely contributes.
+
+## Current Product Kernel thesis
+
+The current thesis is:
 
 > An autonomous agent needs more than instructions. It needs a persistent model of the product it is operating within.
 
-The framework combines ideas inspired by:
+The project currently describes itself as:
 
-* Layers by Jamie Mill
-* Archē by Josh Millgate
+> A meta-context vibecoding framework for autonomous design + development.
 
-The intended conceptual relationship is:
+The current conceptual loop is:
 
-```text
-Layers
-    ↓
+```text id="9mtm7e"
 product reasoning
-    ↓
+      ↓
 decisions
-    ↓
+      ↓
 persistent context
-    ↓
+      ↓
 autonomous implementation
-    ↓
+      ↓
 validation
-    ↓
+      ↓
 updated context
+      ↓
+next iteration
 ```
 
-Layers is primarily influencing the reasoning side.
+Challenge this model.
 
-Archē is primarily influencing the persistent-context and disciplined development side.
+It may be correct.
 
-Product Kernel is intended to be an independent synthesis rather than a fork or wrapper around either project.
+It may be incomplete.
 
-## Current proposed structure
+It may need a fundamentally different abstraction.
 
-```text
-product-kernel/
-├── README.md
-├── LICENSE
-├── AGENTS.md
-│
-├── context/
-│   ├── PROJECT.md
-│   ├── PRINCIPLES.md
-│   ├── CURRENT-STATE.md
-│   ├── DECISIONS.md
-│   ├── OPEN-QUESTIONS.md
-│   └── ROADMAP.md
-│
-├── docs/
-│   ├── 01-philosophy.md
-│   ├── 02-mental-model.md
-│   ├── 03-workflow.md
-│   ├── 04-context-architecture.md
-│   ├── 05-decision-system.md
-│   ├── 06-autonomy-model.md
-│   ├── 07-validation.md
-│   ├── 08-git-and-change-management.md
-│   ├── 09-tooling.md
-│   └── 10-influences.md
-│
-├── templates/
-│   ├── decision.md
-│   └── feature.md
-│
-└── .claude/
-    └── skills/
-        └── product-kernel/
-            └── SKILL.md
-```
+## Current repository
 
-## Audit objectives
+Start by inspecting the entire repository.
 
-Audit the entire proposed system, not just individual files.
+Read all existing:
 
-### 1. Challenge the thesis
+* README files
+* context files
+* docs
+* templates
+* Claude skills
+* agent instructions
+* configuration
+* examples
+* package metadata
+* Git history where useful
 
-Determine whether the central thesis is actually strong.
+Do not assume the current folder structure is optimal.
 
-Ask:
+First understand what currently exists.
 
-* Is "persistent product context" genuinely the core problem?
-* Is Product Kernel solving a distinct problem from existing agent frameworks?
-* Is this really a framework, a methodology, a skill system, a project convention, or something else?
-* Is "meta-context" the right conceptual abstraction?
-* Is "vibecoding" useful positioning or does it weaken credibility?
-* Does "autonomous design + development" accurately describe the system?
-* Is there a stronger framing that emerges from the material?
+Then audit it.
 
-Do not preserve terminology merely because it already exists.
+---
 
-### 2. Compare the abstraction boundaries
+# 1. Executive verdict
 
-Determine whether the current division between:
+Give a blunt assessment of the current project.
 
-* Layers
+Answer:
+
+* Is there actually a strong idea here?
+* Is Product Kernel meaningfully distinct?
+* What is the strongest part?
+* What is currently confused?
+* What is unnecessarily elaborate?
+* What is missing?
+* Would you personally keep developing this?
+* What would need to change for it to become genuinely useful rather than another collection of AI prompts and Markdown files?
+
+Do not optimise for encouragement.
+
+---
+
+# 2. Identify the real problem
+
+Challenge the project's current framing.
+
+Determine whether the real problem is primarily:
+
+* lack of persistent context
+* poor product reasoning
+* context loss across sessions
+* accidental product decisions during implementation
+* lack of agent memory
+* weak design-to-code handoff
+* poor validation
+* insufficient project state
+* something else
+
+Do not assume the current thesis is the deepest formulation.
+
+Find the strongest underlying problem.
+
+---
+
+# 3. Challenge the name and positioning
+
+Audit:
+
 * Product Kernel
-* Archē
-* Claude Code
-* project code
-* project context
+* meta-context
+* vibecoding
+* autonomous
+* design + development
+* framework
+* operating system
+* methodology
+* protocol
+* system
 
-is actually coherent.
+Determine what this project actually is.
 
-Identify overlaps.
+Possible categories:
 
-Identify missing boundaries.
+* methodology
+* framework
+* skill system
+* project convention
+* agent runtime layer
+* context architecture
+* product-development operating model
+* developer tool
+* something else
 
-Ask whether Product Kernel currently has a sufficiently distinct role.
+Recommend the strongest positioning at the project's current maturity.
 
-The desired result is not:
+Do not optimise for hypothetical future scale.
 
-```text
-Layers + Archē = Product Kernel
-```
+---
 
-unless that is genuinely the best abstraction.
+# 4. Audit the current repository architecture
 
-Look for a stronger synthesis.
+Inspect the existing repository and produce a table like:
 
-### 3. Challenge the context architecture
+| Existing item | Keep | Rewrite | Merge | Split | Rename | Delete | Reason |
+| ------------- | ---- | ------- | ----- | ----- | ------ | ------ | ------ |
 
-Audit the distinction between:
+Evaluate whether each current artifact has a clear purpose.
 
-* docs/
-* context/
-* templates/
-* AGENTS.md
-* SKILL.md
-* future commands
+Look for:
 
-Determine whether these are truly different concerns or merely different folders containing overlapping Markdown.
+* duplicated information
+* competing sources of truth
+* unnecessary documents
+* unclear naming
+* context versus documentation confusion
+* framework versus project confusion
+* agent instructions mixed with product knowledge
+* templates that encode the wrong abstraction
+* README material that belongs elsewhere
+* information that agents need but currently cannot easily retrieve
 
-Look specifically for:
+---
 
-* duplication
-* conflicting sources of truth
-* unnecessary hierarchy
-* confusing terminology
-* missing context categories
-* poor retrieval ergonomics for agents
-* documents that should be merged
-* documents that should be split
+# 5. Design the correct repository architecture
+
+Do not merely improve the current folder tree.
+
+Design the architecture from first principles.
+
+Explicitly distinguish between:
+
+### Framework knowledge
+
+What Product Kernel itself believes and teaches.
+
+### Project knowledge
+
+What a particular project using Product Kernel knows.
+
+### Agent behaviour
+
+How the agent should operate.
+
+### Human-facing documentation
+
+What a person needs to understand the system.
+
+### Templates
+
+Reusable structures for creating new project knowledge.
+
+### Examples
+
+Demonstrations of the methodology in practice.
+
+Determine whether these should live together or separately.
+
+---
+
+# 6. Re-evaluate docs/ versus context/
+
+This distinction is currently assumed to be important.
+
+Challenge it.
 
 Ask:
 
-> If you were Claude arriving in a new repository, what is the minimum information you would actually need, in what order, and from where?
+* Does this distinction genuinely help agents?
+* Does it primarily help humans?
+* Is it too much taxonomy?
+* Should the framework itself use a different structure?
+* Should some files move?
+* Should context be flatter?
+* Should context be more structured?
+* Should there be a single canonical context index?
 
-Design the architecture around that question.
+Design the smallest architecture that preserves the useful distinction.
 
-### 4. Challenge the concept of "context"
+---
 
-The current model divides context into:
+# 7. Re-evaluate "context"
+
+The current model distinguishes:
 
 * intent
 * knowledge
 * state
 * constraints
 * decisions
-* questions
+* open questions
 
-Challenge that model.
+Challenge this aggressively.
 
-Determine whether:
+Determine whether context should instead distinguish concepts such as:
 
-* these categories overlap
-* additional categories are required
-* some should be properties rather than documents
-* evidence should be first-class
-* confidence should be first-class
-* provenance should be first-class
-* temporal validity should be represented
-* contradictions should be represented
-* dependencies between decisions should be represented
+* intent
+* evidence
+* assumptions
+* decisions
+* invariants
+* state
+* constraints
+* relationships
+* history
+* uncertainty
 
-Consider whether context is better understood as a graph, hierarchy, set of records, documents, or hybrid.
+Determine whether some of these are:
 
-Do not over-engineer this.
+* document types
+* metadata
+* properties
+* views
+* different states of the same object
 
-The goal is to identify the minimum useful abstraction.
+Consider whether context is fundamentally:
 
-### 5. Challenge the decision model
+* a document set
+* a knowledge graph
+* a structured record system
+* a hierarchy
+* a hybrid
 
-The proposed lifecycle is:
+Do not over-engineer.
 
-```text
+The desired result is the minimum abstraction that meaningfully improves agent behaviour.
+
+---
+
+# 8. Re-evaluate the decision model
+
+The current model is:
+
+```text id="g2pk3z"
 UNKNOWN
 ↓
 ASSUMED
@@ -211,105 +368,253 @@ DECIDED
 VALIDATED
 ```
 
-Audit this critically.
+Do not accept this automatically.
 
-Ask:
+Determine whether the model should instead represent:
 
-* Are these actually states?
-* Are they mutually exclusive?
-* Can a decision be both assumed and validated?
-* Should evidence have its own lifecycle?
-* Can a decision become invalid?
-* Should decisions have owners?
-* Should decisions have scope?
-* Should decisions have dependencies?
-* How should superseded decisions work?
-* How does an agent know whether an old decision still applies?
+* decision
+* evidence
+* confidence
+* status
+* scope
+* owner
+* dependencies
+* supersession
+* validity
+* revisit conditions
 
-Propose a better model if necessary.
+Challenge the distinction between a "decision" and an "assumption".
 
-### 6. Challenge autonomy
+Determine whether validation belongs to the decision itself or to evidence supporting the decision.
 
-The framework currently distinguishes between:
+Determine how an agent should handle:
 
-* safe autonomous implementation
-* decisions that should be surfaced
+* conflicting decisions
+* superseded decisions
+* stale decisions
+* conditional decisions
+* decisions with weak evidence
+* decisions that are intentionally provisional
 
-Audit this deeply.
+Propose a better model if one exists.
 
-Determine whether autonomy should be modelled around:
+---
+
+# 9. Re-evaluate open questions
+
+The project currently treats open questions as first-class context.
+
+Determine whether this is genuinely useful.
+
+Challenge:
+
+* when something should become an open question
+* whether open questions should have priority
+* whether they should have owners
+* whether they should expire
+* when they should be promoted into active reasoning
+* whether unresolved questions can block autonomous implementation
+
+Define a useful distinction between:
+
+* harmless uncertainty
+* important uncertainty
+* blocking uncertainty
+
+---
+
+# 10. Re-evaluate autonomy
+
+The project currently proposes that agents should act autonomously within explicit boundaries.
+
+Turn that into something operational.
+
+Determine whether autonomy should depend on variables such as:
 
 * uncertainty
-* reversibility
 * impact
+* reversibility
 * confidence
 * scope
-* established precedent
+* precedent
+* evidence
+* cost of being wrong
 
-Consider whether Product Kernel needs an explicit "decision threshold" or escalation model.
+Test whether a simple model can determine:
 
-Avoid hand-wavy language.
+> Proceed autonomously.
 
-Make the model operational enough that an AI agent could use it.
+versus:
 
-### 7. Challenge the Layers integration
+> Surface this decision.
 
-Do not assume Layers is the correct reasoning model simply because it is useful.
+versus:
 
-Determine:
+> Invoke deeper reasoning.
 
-* which parts of Layers are essential
-* which parts are unnecessary for Product Kernel
-* whether the seven layers map cleanly into an agent workflow
-* whether Product Kernel should expose those layers directly
-* whether the system should instead use them internally
-* whether "orient" is sufficiently powerful
-* whether there are missing reasoning stages before implementation
+Do not leave autonomy as aspirational language.
 
-Pay particular attention to the distinction between:
+It should be something an agent could actually apply.
 
-* observation
-* interpretation
+---
+
+# 11. Re-evaluate Layers integration
+
+Determine exactly how Product Kernel should interact with Layers.
+
+Possible models include:
+
+### Model A
+
+Product Kernel directly incorporates Layers as its reasoning system.
+
+### Model B
+
+Product Kernel treats Layers as an optional external methodology.
+
+### Model C
+
+Product Kernel creates a generalized reasoning layer inspired by Layers.
+
+### Model D
+
+Product Kernel delegates product reasoning entirely to Layers.
+
+### Model E
+
+Something else.
+
+Evaluate these.
+
+Determine the cleanest boundary.
+
+Do not reproduce Layers unnecessarily.
+
+Do not create a weaker version of something that should remain delegated.
+
+---
+
+# 12. Re-evaluate Archē integration
+
+Do the same for Archē.
+
+Determine whether Product Kernel should:
+
+* extend Archē
+* complement Archē
+* replace parts of Archē
+* stay orthogonal to Archē
+* integrate conceptually while remaining implementation-independent
+
+Identify exactly what Product Kernel adds.
+
+The strongest architecture may be:
+
+```text id="33hp4m"
+Layers
+   ↓
+reasoning
+   ↓
+Product Kernel
+   ↓
+context + decisions + autonomy boundary
+   ↓
+Archē / other execution workflow
+   ↓
+implementation
+```
+
+But do not assume this is correct.
+
+Test it.
+
+---
+
+# 13. Identify the true core primitive
+
+Determine what the central primitive of Product Kernel actually is.
+
+Candidates include:
+
+* context
 * decision
+* intent
+* product model
+* project state
+* evidence
+* task
 * specification
+* agent session
+* something else
 
-Do not allow these concepts to blur together.
+A strong framework usually has a small number of important primitives.
 
-### 8. Challenge the Archē integration
+Identify the minimum set.
 
-Audit whether the framework is actually benefiting from Archē or simply reproducing it.
+---
+
+# 14. Challenge the workflow
+
+The current conceptual workflow is:
+
+```text id="dq4c1c"
+orient
+→ identify uncertainty
+→ reason
+→ decide
+→ capture
+→ specify
+→ build
+→ review
+→ validate
+→ update context
+```
+
+Test whether this is actually the correct loop.
+
+Look for:
+
+* redundant steps
+* missing steps
+* places where reasoning should happen asynchronously
+* situations where specification is unnecessary
+* situations where validation should happen earlier
+* circumstances where implementation should feed reasoning
+* circumstances where evidence should update a prior decision
+
+Determine whether the workflow should be:
+
+* linear
+* recursive
+* state-driven
+* event-driven
+* hybrid
+
+---
+
+# 15. Challenge the "don't jump straight to UI" principle
+
+This is currently one of the strongest philosophical claims.
+
+Test it.
 
 Determine:
 
-* which Archē ideas should be preserved
-* which should be omitted
-* which should be reframed
-* what Product Kernel uniquely adds
-* whether the build workflow belongs inside Product Kernel at all
+* when this principle is useful
+* when it becomes counterproductive
+* whether rapid prototyping can legitimately happen before conceptual clarity
+* whether surface work can be used as a discovery mechanism
+* whether the system should explicitly support probing through prototypes
 
-If Archē should remain a complementary execution layer, state exactly where the boundary should be.
+Do not turn "reason before building" into dogma.
 
-### 9. Challenge the human role
+A strong system should support iterative discovery as well as deliberate reasoning.
 
-The framework currently emphasises increasing agent autonomy.
+---
 
-Audit the human role carefully.
+# 16. Challenge validation
 
-Determine:
-
-* where human judgement remains essential
-* where the human should approve
-* where the human should provide evidence
-* where the human is merely supervising
-* where the human should be removed from the loop entirely
-
-The system should not create performative human approval.
-
-It should identify genuinely consequential decisions.
-
-### 10. Challenge validation
-
-The current model distinguishes:
+The current proposal distinguishes:
 
 * model validation
 * flow validation
@@ -317,350 +622,493 @@ The current model distinguishes:
 * implementation validation
 * real-world validation
 
-Audit this.
+Determine whether this is useful or over-modelled.
 
-Determine whether:
+Consider whether validation should instead be represented as:
 
-* these are genuinely distinct
-* evidence should be attached to decisions directly
-* validation should modify decision state
-* validation should modify context automatically
-* product truth should be treated as provisional
+* evidence attached to decisions
+* evidence attached to features
+* tests
+* observations
+* experiments
+* user feedback
 
-Propose a stronger evidence model if appropriate.
+Determine how validation changes context.
 
-### 11. Challenge the documentation strategy
+---
 
-Review every proposed file conceptually.
+# 17. Challenge human involvement
+
+Define the human's role precisely.
+
+The framework should not produce fake approval gates.
 
 Determine:
 
-* which documents are essential
-* which are useful but optional
-* which should not exist
-* which information is duplicated
-* which concepts are currently under-specified
+* what the human uniquely contributes
+* where human judgement is actually necessary
+* where the agent should simply proceed
+* what requires explicit approval
+* what requires only notification
+* what can be completely autonomous
 
-Aim for a repository that is understandable in under five minutes by a competent engineer or designer.
+Consider whether the human is:
 
-Avoid documentation bloat.
+* decision maker
+* evidence provider
+* exception handler
+* product owner
+* reviewer
+* supervisor
 
-### 12. Challenge naming
+Do not assume the answer is "all of the above."
 
-Audit:
+---
 
-* Product Kernel
-* meta-context
-* vibecoding
-* autonomous design + development
-* context
-* decision
-* state
-* intent
-* knowledge
-* constraints
-* workflow
-* skill
-* command
+# 18. Challenge the skill architecture
 
-Identify terms that are:
+Audit whether one main skill is better than many.
 
-* overloaded
-* ambiguous
-* fashionable but imprecise
-* too generic
-* unnecessarily academic
+Consider:
 
-Propose better alternatives where useful.
+```text id="jkdthc"
+one general Product Kernel skill
 
-### 13. Challenge the README
+versus
 
-The README should communicate the idea extremely quickly.
+Product Kernel
+├── orient
+├── reason
+├── decide
+├── build
+├── review
+├── validate
+└── sync
+```
 
-Audit whether the current framing communicates:
+Determine where the boundaries should actually be.
 
-* the problem
-* the insight
-* the system
-* why it is different
-* how it relates to Layers and Archē
-* how someone would actually use it
+Remember:
 
-Do not optimise only for clarity.
+Skills should encode behaviour.
 
-Optimise for a strong technical/product concept.
+Context should encode project knowledge.
 
-### 14. Challenge the skill architecture
+Templates should encode reusable structures.
 
-The current proposal has one initial Product Kernel skill.
+Commands should provide useful human entry points.
 
-Determine whether that is correct.
+Do not blur these concerns.
 
-Explore the boundary between:
+---
 
-* one general skill
-* multiple specialised skills
-* commands
-* templates
-* project context
-* agent instructions
+# 19. Challenge AGENTS.md and SKILL.md
 
-Avoid creating commands or skills simply because frameworks conventionally have them.
+Determine whether both are actually necessary.
 
-The system should earn each abstraction.
+Ask:
 
-### 15. Challenge the public-project strategy
+* Does one duplicate the other?
+* What belongs in AGENTS.md?
+* What belongs in SKILL.md?
+* What should Claude discover dynamically?
+* What should be globally available?
+* What should only apply when the skill is invoked?
 
-Assume this will be built publicly.
+Propose the smallest useful arrangement.
 
-Evaluate whether the repository should optimise for:
+---
 
-* personal workflow
-* open-source framework
-* research project
-* methodology
-* agent skill library
-* developer tool
-* product-design system
-* future package/tool
+# 20. Challenge documentation density
 
-Determine which positioning is most defensible at the current stage.
+Assume a capable engineer opens the repository for the first time.
 
-Do not optimise for hypothetical scale.
+They should understand:
 
-### 16. Look for missing concepts
+* what the project is
+* why it exists
+* how it works
+* where the important context lives
+* how to use it
+* how to contribute
 
-After auditing the existing model, identify ideas that are currently absent.
+within a few minutes.
 
-Potential areas include:
+Identify any current documentation that creates more cognitive load than value.
 
-* evidence
-* provenance
-* confidence
+Prefer:
+
+* fewer stronger documents
+* indexes
+* clear references
+* explicit boundaries
+
+over a large taxonomy of Markdown files.
+
+---
+
+# 21. Stress test with scenarios
+
+Run the current architecture against at least these cases.
+
+## A — UI complaint
+
+User:
+
+> Make this settings screen simpler.
+
+Determine how the system should respond.
+
+## B — Ambiguous feature
+
+User:
+
+> Add saved templates.
+
+Nobody has defined what a template is.
+
+## C — Contradictory context
+
+Two documents describe different product behaviour.
+
+## D — Code/context conflict
+
+The implementation contradicts a documented decision.
+
+## E — Old decision
+
+A decision made six months ago now appears wrong.
+
+## F — Implementation choice with product implications
+
+Claude can implement a feature three ways, each with different UX consequences.
+
+## G — Scope explosion
+
+A small feature turns into a new subsystem.
+
+## H — User absence
+
+The user leaves the project for two weeks.
+
+## I — Multiple agents
+
+A second AI coding agent joins the project.
+
+## J — Layers unavailable
+
+The agent has Product Kernel but no access to Layers.
+
+## K — Rapid prototyping
+
+The product is highly visual and the fastest way to discover the problem is to build a rough prototype first.
+
+## L — Routine implementation
+
+A clearly specified feature needs a large amount of straightforward coding.
+
+For each case, determine whether the current architecture works.
+
+---
+
+# 22. Look for missing primitives
+
+After reviewing everything, explicitly identify missing concepts.
+
+Consider:
+
 * assumptions
+* evidence
+* confidence
+* provenance
 * contradictions
 * supersession
-* dependencies
-* scope
 * temporal validity
-* product invariants
-* system invariants
-* project ontology
-* memory decay
+* scope
+* invariants
+* dependencies
+* experiments
+* observations
+* hypotheses
+* reversible versus irreversible decisions
+* change impact
 * context retrieval
 * context compression
-* change detection
-* decision impact
-* reversibility
+* memory decay
+* context health
+* context conflict detection
 
-Only introduce a concept if it solves a real problem.
+Do not add concepts simply because they sound sophisticated.
 
-### 17. Attack the framework with failure scenarios
+Only recommend a concept if it solves a concrete problem.
 
-Test the proposed system mentally against concrete situations.
+---
 
-At minimum:
+# 23. Design v0.1 again from first principles
 
-#### Scenario A
+After the audit, ignore the current repository structure.
 
-A designer says:
+Design what you believe Product Kernel v0.1 should actually be.
 
-> "Make this settings screen simpler."
+Provide:
 
-#### Scenario B
+### Core thesis
 
-A developer says:
+One concise statement.
 
-> "Add saved templates."
+### Core primitives
 
-but nobody has decided what a template actually is.
+The smallest meaningful set.
 
-#### Scenario C
+### Mental model
 
-Claude discovers that the code contradicts the documented product decision.
+The strongest conceptual diagram.
 
-#### Scenario D
+### Context architecture
 
-A design decision from six months ago is now obviously wrong.
+The minimum useful structure.
 
-#### Scenario E
+### Decision model
 
-Two context documents disagree.
+The strongest practical model.
 
-#### Scenario F
+### Autonomy model
 
-Claude can implement a feature in three different technically valid ways with different product consequences.
+A usable escalation rule.
 
-#### Scenario G
+### Workflow
 
-A feature starts simple and expands into a new subsystem.
+The actual operating loop.
 
-#### Scenario H
+### Layers relationship
 
-The user disappears for two weeks and returns to the repository.
+The cleanest integration boundary.
 
-#### Scenario I
+### Archē relationship
 
-A second AI agent joins the project.
+The cleanest integration boundary.
 
-#### Scenario J
+### Human role
 
-A future agent has no access to Layers but still needs to operate correctly.
+The actual human/agent boundary.
 
-For each scenario, identify where the current architecture succeeds or fails.
+### Skill architecture
 
-### 18. Produce a better architecture
+The minimum useful skills.
 
-After the critique, produce a proposed v0.1 architecture.
+### Command architecture
 
-Do not merely comment on the existing files.
+Only commands that earn their existence.
 
-Design a better system.
+### Repository structure
 
-Include:
+A complete revised tree.
 
-* revised repository structure
-* revised context architecture
-* revised document taxonomy
-* revised decision model
-* revised autonomy model
-* revised validation model
-* revised skill architecture
-* revised agent entry point
-* revised workflow
+---
 
-Prefer fewer concepts that are stronger.
+# 24. Separate v0.1 from future ambition
 
-### 19. Separate "must have now" from "future"
+Explicitly divide your recommendation into:
 
-Divide the output into:
+## MUST HAVE
 
-#### MUST HAVE
+Required to test the methodology.
 
-Necessary to test the methodology.
+## SHOULD HAVE
 
-#### SHOULD HAVE
+Useful but not essential.
 
-Useful but not required for first validation.
+## FUTURE
 
-#### FUTURE
+Interesting ideas that should not yet be built.
 
-Potential extensions that should not be built yet.
+Do not let speculative infrastructure dominate v0.1.
 
-This is important.
+---
 
-Do not let speculative architecture dominate the first version.
+# 25. Produce an explicit migration plan
 
-### 20. Rewrite, don't merely criticise
+Because the current repository is already committed, tell me exactly what to do with it.
 
-Where a document or concept is weak, produce the improved version.
+Provide:
 
-For important changes, provide complete replacement Markdown rather than vague recommendations.
+### Keep
 
-## Desired output
+Existing files that remain substantially correct.
 
-Produce a structured audit with these sections:
+### Rewrite
 
-# Executive verdict
+Files that should be replaced.
 
-A blunt assessment of the current idea.
+### Merge
 
-# What is genuinely strong
+Files that should become one document.
 
-Identify the ideas worth preserving.
+### Split
 
-# What is weak
+Files that contain multiple concepts.
 
-Identify bad abstractions, unnecessary complexity and contradictions.
+### Rename
 
-# What is missing
+Files whose names are misleading.
 
-Identify genuinely important omissions.
+### Delete
 
-# Relationship to Layers
+Files that should disappear.
 
-Explain the correct boundary.
+### Add
 
-# Relationship to Archē
+New files that are genuinely necessary.
 
-Explain the correct boundary.
+For every change, explain why.
 
-# Recommended architecture
+---
 
-Provide the revised system.
+# 26. Rewrite the important files
 
-# Recommended repository structure
+Do not stop at critique.
 
-Provide the revised tree.
+For every file that materially changes, provide the complete replacement Markdown.
 
-# Core mental model
+Use this format:
 
-Provide the strongest conceptual diagram.
+```text
+FILE: path/to/file.md
 
-# Context model
+[complete file contents]
+```
 
-Provide the revised context taxonomy.
+Do not provide fragments.
 
-# Decision model
+Do not merely describe what should change.
 
-Provide the revised decision/evidence model.
+For the most important files, produce production-quality Markdown that can be pasted directly into the repository.
 
-# Autonomy model
+---
 
-Provide the revised escalation model.
+# 27. Design the ideal first-use experience
 
-# Workflow
+Imagine somebody clones this repository and wants to use Product Kernel on an unrelated product.
 
-Provide the revised end-to-end workflow.
+Describe the exact experience.
 
-# Skills and commands
+For example:
 
-Specify the minimum useful set.
+```text id="92w9ty"
+clone
+↓
+install / copy
+↓
+initialise project context
+↓
+agent reads context
+↓
+user gives first task
+↓
+agent determines whether reasoning is necessary
+↓
+agent works
+↓
+context evolves
+```
 
-# Documents
+Determine what must happen automatically versus manually.
 
-Identify which current documents should:
+---
 
-* remain
-* change
-* merge
-* split
-* disappear
-* be added
+# 28. Define the minimum useful Product Kernel
 
-# v0.1 scope
+At the end of the audit, answer:
 
-Define exactly what should exist before the system is tested on a real project.
+> What is the smallest thing we could build that would prove this idea works?
 
-# Future directions
+This should be much smaller than the full framework if possible.
 
-Capture interesting ideas that should deliberately wait.
+The proof should ideally involve one real project and several realistic product-development scenarios.
 
-# Replacement files
+---
 
-For every document you believe should materially change, provide its complete replacement Markdown.
+# 29. Measure usefulness
 
-## Important review behaviour
+Do not invent vanity metrics.
 
-Be intellectually adversarial.
+Propose practical qualitative or behavioural tests.
 
-Do not praise ideas simply because they are elegant.
+Examples may include:
 
-Do not preserve abstractions because they already exist.
+* Can a fresh session recover project state quickly?
+* Does the agent make fewer accidental product decisions?
+* Does it detect deeper product problems?
+* Does it preserve important decisions?
+* Does context remain coherent as the project changes?
+* Does the workflow feel lighter rather than heavier?
+* Can another person understand the project without being present for the original conversations?
 
-Do not invent complexity because it sounds sophisticated.
+Determine the smallest useful evaluation set.
+
+---
+
+# 30. Final recommendation
+
+Finish with:
+
+## The strongest version of Product Kernel
+
+A concise description of what you now believe the project actually is.
+
+## What I would build next
+
+A deliberately small implementation sequence.
+
+## What I would NOT build yet
+
+Explicitly protect against premature complexity.
+
+## The one idea worth defending
+
+Identify the single insight that makes this project worth existing.
+
+## The one idea worth killing
+
+Identify the weakest or most misleading current assumption.
+
+---
+
+# Review style
+
+Be adversarial but constructive.
+
+Do not praise ideas merely because they are elegant.
+
+Do not preserve existing architecture because effort has already been invested.
+
+Do not invent complexity.
+
+Do not assume every concept needs a file.
+
+Do not assume every workflow needs a command.
+
+Do not assume more autonomy is always better.
+
+Do not assume more documentation is always better.
 
 Prefer:
 
 * clear boundaries
-* fewer concepts
-* explicit state
+* small numbers of strong primitives
+* explicit uncertainty
 * durable knowledge
-* strong retrieval
-* reversible decisions
+* useful retrieval
+* evidence
+* reversibility
 * meaningful autonomy
-* real evidence
+* real validation
+* low ceremony
 
-The purpose of this audit is to make Product Kernel substantially better before it becomes difficult to change.
+The objective is to transform the current committed repository from a promising first draft into a coherent, testable v0.1 system.
 
-The final recommendation should leave the project with a coherent v0.1 architecture that is small enough to test and strong enough to be worth testing.
+The repository already exists.
+
+**Audit it first. Challenge it second. Redesign it third. Only then rewrite the files.**
+
+Do not treat the existing structure as the answer merely because it is already committed.
